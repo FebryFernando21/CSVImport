@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Matching extends Model
 {
-     public $fillable = ['tgl', 'keterangan', 'cabang', 'jumlah', 'saldo'];
+    protected $fillable = ['id_csv', 'tanggal', 'keterangan', 'cabang', 'jumlah', 'saldo'];
+
+    const CREATED_AT = 'createddate';
+    const UPDATED_AT = 'modifieddate';
 }

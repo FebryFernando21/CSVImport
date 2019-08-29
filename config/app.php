@@ -229,7 +229,8 @@ return [
     ],
 
     'db_fields' =>[
-        'tgl',
+        'id_csv',
+        'tanggal',
         'keteragan',
         'cabang',
         'jumlah',

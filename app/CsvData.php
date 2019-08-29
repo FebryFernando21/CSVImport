@@ -9,4 +9,7 @@ class CsvData extends Model
     protected $table = 'csv_data';
 
     protected $fillable = ['csv_filename', 'csv_data'];
+
+    const CREATED_AT = 'createddate';
+    const UPDATED_AT = 'modifieddate';
 }

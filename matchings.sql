@@ -3,12 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 07, 2019 at 07:07 AM
+-- Generation Time: Aug 29, 2019 at 02:58 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET GLOBAL time_zone = '+7:00';
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -28,13 +30,14 @@ SET GLOBAL time_zone = '+7:00';
 
 CREATE TABLE `matchings` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tgl` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `keterangan` text(800) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `cabang` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jumlah` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `saldo` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `id_csv` bigint(11) DEFAULT NULL,
+  `tanggal` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keterangan` text COLLATE utf8mb4_unicode_ci,
+  `cabang` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jumlah` bigint(20) NOT NULL,
+  `saldo` bigint(20) NOT NULL,
+  `createddate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifieddate` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -45,8 +48,8 @@ CREATE TABLE `matchings` (
 -- Indexes for table `matchings`
 --
 ALTER TABLE `matchings`
-  ADD PRIMARY KEY (`id`);
-
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_csv` (`id_csv`);
 --
 -- AUTO_INCREMENT for dumped tables
 --

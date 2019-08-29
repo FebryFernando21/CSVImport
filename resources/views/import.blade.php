@@ -8,7 +8,7 @@
                     <h1>CSV Import</h1>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('import_parse') }}" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="POST" action="{{ route('import_process') }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('csv_file') ? ' has-error' : '' }}">
@@ -28,7 +28,7 @@
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Check
+                                        Import
                                     </button>
                                 </div>
                             </div>
